@@ -1,0 +1,9 @@
+<% @articles.each do |article| %>
+  <%= link_to article_path(article) do %>
+    <h2><%= article.title %></h2>
+  <% end %>
+  <p><%=     raw Kramdown::Document.new(article.content).to_html
+ %></p>
+<% end %>
+
+<%= link_to "New", "/articles/new"%>
